@@ -1,14 +1,48 @@
-fastapi
-uvicorn
-openai==1.60.0
-azure-identity
-azure-ai-ml
-azureml-inference-server-http
-python-multipart
-pandas
-langchain_openai
-langchain
-langchain_experimental
-tabulate
-tables
-openpyxl
+fastapi>=0.104.0
+uvicorn>=0.24.0
+httpx[http2]
+h2>=4.0.0,<5.0.0
+hpack>=4.0.0
+hyperframe>=6.0.0
+# Azure and OpenAI
+openai==1.90.0,
+azure-identity>=1.15.0
+azure-ai-ml>=1.12.0
+azureml-inference-server-http>=0.8.0
+pydantic>=2.0.0,<3.0.0
+# File handling
+python-multipart>=0.0.6
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.1.0
+
+# AI/ML tools
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-experimental>=0.0.47
+tabulate>=0.9.0
+
+# Document processing
+python-docx>=1.1.0
+Pillow>=10.0.0
+PyPDF2>=3.0.0
+chardet>=5.0.0
+beautifulsoup4>=4.12.0
+markdown2>=2.4.0
+
+# Document extraction packages actually used in the code
+unstructured>=0.10.0
+unstructured[all-docs]>=0.10.0
+python-docx>=0.8.11      # Used in _extract_docx_fallback
+PyPDF2>=3.0.0           # Used in _extract_pdf_fallback
+pdfplumber>=0.9.0       # Used in _extract_pdf_fallback
+python-pptx>=0.6.21     # Used in _extract_pptx_fallback
+html2text>=2020.1.16    # Used in _extract_html_fallback
+markdown>=3.4.0         # Used in _extract_markdown_fallback
+
+
+# NOTE: Azure packages (azure-identity, azure-ai-ml, azureml-inference-server-http)
+# are kept for Azure App Service deployment compatibility even though not
+# directly imported in the application code.
+
